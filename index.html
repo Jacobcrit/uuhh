@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Notifikasi UwU 💌</title>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Comic Neue', cursive;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background: linear-gradient(135deg, #ffe0f0, #ffeaf6);
+      color: #333;
+      min-height: 100vh;
+      margin: 0;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    h1 {
+      color: #ff69b4;
+      margin-bottom: 20px;
+      font-size: 1.8em;
+      text-align: center;
+    }
+
+    button {
+      background: #ff85c1;
+      color: white;
+      padding: 14px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3);
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #ff64af;
+    }
+
+    .info {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #777;
+      text-align: center;
+    }
+
+    .back {
+      margin-top: 30px;
+    }
+
+    .back a {
+      text-decoration: none;
+      color: #ff69b4;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔔 Test Notifikasi Chrome UwU 💖</h1>
+
+  <button onclick="kirimNotif()">Kirim Notif Sekarang</button>
+
+  <div class="info">Pastikan kamu sudah klik <b>"Izinkan"</b> kalau diminta yaa~</div>
+
+  <div class="back">
+    <a href="home.html">⬅️ Balik ke Halaman Utama</a>
+  </div>
+
+  <script>
+    async function kirimNotif() {
+      const permission = await Notification.requestPermission();
+      if (permission !== "granted") {
+        alert("😭 Kamu belum izinkan notifikasi");
+        return;
+      }
+
+      const notif = new Notification("⏰ Waktu spesialnya udah nyampeee!!", {
+        body: "Cieeee udah waktunya ketemuan atau sayang-sayangan 🥺💕",
+        icon: "https://cdn-icons-png.flaticon.com/512/616/616408.png"
+      });
+
+      // Suara anime lucuu
+      const suara = new Audio("https://www.myinstants.com/media/sounds/anime-wow-sound.mp3");
+      suara.play();
+    }
+  </script>
+</body>
+</html>
